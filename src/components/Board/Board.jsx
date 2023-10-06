@@ -38,7 +38,10 @@ export default function Board({ solution }) {
         return
       }
 
-      setCurrentGuess(prevGuess => prevGuess + event.key)
+      const isLetter = event.key.match(/^[a-z]{1}$/) != null
+      if (isLetter) {
+        setCurrentGuess(prevGuess => prevGuess + event.key)
+      }
     }
 
     window.addEventListener('keydown', handleType)
