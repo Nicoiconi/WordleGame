@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import Line from "../Line/Line"
 
-export default function Board({ solution }) {
+export default function Board({ solution, setSolution, getRandomWord }) {
 
   const [guesses, setGuesses] = useState(Array(6).fill(null))
   const [currentGuess, setCurrentGuess] = useState('')
@@ -49,8 +49,21 @@ export default function Board({ solution }) {
     return () => window.removeEventListener('keydown', handleType)
   }, [currentGuess, isGameOver, solution, guesses])
 
+  function resetGame() {
+    setSolution('')
+    setGuesses(Array(6).fill(null))
+    setCurrentGuess('')
+    setIsGameOver(false)
+    getRandomWord()
+  }
+
   return (
     <div className="board">
+      <button
+        onClick={() => resetGame()}
+      >
+        RESET
+      </button>
       {
         guesses.map((guess, guessIndex) => {
           const isCurrentGuess = guessIndex === guesses.findIndex(val => val == null)

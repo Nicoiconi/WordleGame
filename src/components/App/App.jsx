@@ -6,13 +6,13 @@ import { useEffect, useState } from 'react'
 function App() {
   const [solution, setSolution] = useState('')
 
-  async function getRandomeWord() {
+  async function getRandomWord() {
     const randomeWord = words[Math.floor(Math.random() * words.length)]
     setSolution(randomeWord)
   }
 
   useEffect(() => {
-    getRandomeWord()
+    getRandomWord()
   }, [])
 
   return (
@@ -21,6 +21,8 @@ function App() {
       {solution}
       <Board
         solution={solution}
+        setSolution={setSolution}
+        getRandomWord={getRandomWord}
       />
     </div>
   )
