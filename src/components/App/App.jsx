@@ -19,7 +19,9 @@ function App() {
     <div className='App'>
       <h1>Wordle Game</h1>
       {solution}
-      <Board />
+      <Board
+        solution={solution}
+      />
     </div>
   )
 }
