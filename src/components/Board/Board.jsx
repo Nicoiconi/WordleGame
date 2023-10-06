@@ -18,7 +18,12 @@ export default function Board({ solution }) {
           return
         }
 
-        const isCorrect = solution === currentGuess
+        const newGuesses = [...guesses]
+        newGuesses[guesses.findIndex(val => val == null)] = currentGuess
+        setGuesses(newGuesses)
+        setCurrentGuess('')
+
+        const isCorrect = solution === currentGuess.toUpperCase()
         if (isCorrect) {
           setIsGameOver(true)
         }
@@ -47,8 +52,12 @@ export default function Board({ solution }) {
         guesses.map((guess, guessIndex) => {
           const isCurrentGuess = guessIndex === guesses.findIndex(val => val == null)
           return (
-            <div key={guess}>
-              <Line guess={isCurrentGuess ? currentGuess : guess ?? ''} />
+            <div key={guessIndex}>
+              <Line
+                guess={isCurrentGuess ? currentGuess : guess ?? ''}
+                isFinal={!isCurrentGuess && guess != null}
+                solution={solution.toLowerCase()}
+              />
             </div>
           )
         })
