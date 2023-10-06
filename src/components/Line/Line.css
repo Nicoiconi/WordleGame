@@ -1,0 +1,15 @@
+.line {
+  display: flex;
+  gap: 2px;
+}
+
+.tile {
+  width: 50px;
+  height: 50px;
+  border: 1px solid rgb(241, 237, 237);
+  font-size: 30px;
+  display: fled;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+}
