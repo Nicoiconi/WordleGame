@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import Line from "../Line/Line"
+import confetti from "canvas-confetti"
 
 export default function Board({ solution, setSolution, getRandomWord }) {
 
@@ -26,6 +27,7 @@ export default function Board({ solution, setSolution, getRandomWord }) {
         const isCorrect = solution === currentGuess.toUpperCase()
         if (isCorrect) {
           setIsGameOver(true)
+          confetti()
         }
       }
 
