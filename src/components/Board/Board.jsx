@@ -44,7 +44,7 @@ export default function Board({ solution }) {
     window.addEventListener('keydown', handleType)
 
     return () => window.removeEventListener('keydown', handleType)
-  }, [currentGuess, isGameOver, solution])
+  }, [currentGuess, isGameOver, solution, guesses])
 
   return (
     <div className="board">
