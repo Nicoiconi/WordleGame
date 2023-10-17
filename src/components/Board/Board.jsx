@@ -52,11 +52,7 @@ export default function Board({ solution, setSolution, getRandomWord }) {
   }, [currentGuess, isGameOver, solution, guesses])
 
   function resetGame() {
-    setSolution('')
-    setGuesses(Array(6).fill(null))
-    setCurrentGuess('')
-    setIsGameOver(false)
-    getRandomWord()
+    window.location.reload();
   }
 
   return (
