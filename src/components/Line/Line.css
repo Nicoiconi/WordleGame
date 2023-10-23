@@ -15,13 +15,13 @@
 }
 
 .correct {
-  background-color: lightgreen;
+  background-color: rgb(93, 187, 93);
 }
 
 .close {
-  background-color: yellow;
+  background-color: rgb(212, 212, 69);
 }
 
 .incorrect {
-  background-color: lightgrey;
+  background-color: rgb(173, 170, 170);
 } 
